@@ -1,0 +1,16 @@
+.header-search{
+  display: flex;
+  align-items: center;
+  padding: 15px 40px 20px 60px;
+
+  .search{
+    flex: 1 2;
+  }
+}
+
+.header-sorting{
+  display: flex;
+  justify-content: center;
+  color: #929292;
+  margin-bottom: 10px;
+}

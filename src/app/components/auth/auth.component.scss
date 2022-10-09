@@ -1,0 +1,10 @@
+.auth {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  &-text {
+    color: #4f4f4f;
+    margin-right: 5px;
+  }
+}

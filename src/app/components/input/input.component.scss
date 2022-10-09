@@ -1,0 +1,66 @@
+.button {
+  border: none;
+  outline: none;
+  background-color: #2F80ED;
+  border-radius: 5px;
+  padding: 10px 35px;
+  line-height: 14px;
+  color: #fff;
+  cursor: pointer;
+  transition: all .3s ease-in;
+
+  &:hover{
+    box-shadow: 2px 0px 4px #2F80ED;
+  }
+}
+
+.button_search {
+  margin-right: 10px;
+  border-radius: 0px 4px 4px 0px;
+}
+
+.button_item {
+  display: block;
+  margin: 0 auto;
+}
+
+.button_link {
+  background-color: transparent;
+  color: #2F80ED;
+  text-decoration: underline;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: all .3s ease-in;
+
+  &:hover {
+    color: rgb(52, 172, 241);
+    text-decoration: none;
+  }
+}
+
+.button_icon {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  margin: 0;
+}
+
+.button_icon_filter {
+  background: url("/assets/search_setting.svg") center/ cover no-repeat;
+}
+
+.button_icon_registr {
+  background: url("/assets/Subtract.svg") center/ cover no-repeat;
+}
+
+.text {
+  max-width: 400px;
+  flex: 1;
+  padding: 5px;
+  background-color: #EFEFEF;
+  border: none;
+  
+  &:focus-visible{
+    outline: none;
+  }
+}
