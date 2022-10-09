@@ -1,1 +1,23 @@
-<div>App works!</div>
+<div>
+  <app-header>
+    <div class="header-search">
+      <app-search
+        class="search"
+        (showSort)="showSort = !showSort"
+        (showList)="downloadDb()"
+      ></app-search>
+      <app-auth></app-auth>
+    </div>
+    <div class="header-sorting">
+      <app-sorting
+        *ngIf="showSort"
+        class="header-sorting"
+        (sort)="sortItems($event)"
+        (filter)="itemsFilter($event)"
+      ></app-sorting>
+    </div>
+  </app-header>
+  <app-items-list
+    [items]="(data ? data.items : []) | sortItems: sorting | filterItems: filter"
+  ></app-items-list>
+</div>

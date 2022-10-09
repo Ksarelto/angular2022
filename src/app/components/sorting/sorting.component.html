@@ -1,1 +1,10 @@
-<p>sorting works!</p>
+<span>Sorting by:</span>
+<app-input
+  *ngFor="let mode of sortingModes"
+  buttonType="button"
+  [buttonValue]="mode"
+  buttonClass="button_link"
+  [name]="mode"
+  (click)="sortItems($event)"
+></app-input>
+<input type="text" class="sorting-input" (input)="filterItems($event)" />

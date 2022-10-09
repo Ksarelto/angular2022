@@ -1,1 +1,21 @@
-<p>search works!</p>
+<div class="search-container">
+  <img src="/assets/logo.svg" class="logo" />
+  <input
+    type="text"
+    class="search-text"
+    placeholder="What are you want to find out?"
+    #searchInput
+  />
+  <app-input
+    buttonType="button"
+    buttonValue="search"
+    buttonClass="button button_search"
+    (click)="showItemsList(searchInput)"
+  ></app-input>
+  <app-input
+    *ngIf="sortButtonShown"
+    buttonType="button"
+    buttonClass="button button_icon button_icon_filter"
+    (click)="showSortWidgets()"
+  ></app-input>
+</div>

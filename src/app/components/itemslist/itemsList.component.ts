@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IItem } from '../../models/item.model';
 
 @Component({
-  selector: 'app-itemslist',
-  templateUrl: './itemslist.component.html',
-  styleUrls: ['./itemslist.component.scss'],
+  selector: 'app-items-list',
+  templateUrl: './itemsList.component.html',
+  styleUrls: ['./itemsList.component.scss'],
 })
-export class ItemsListComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+export class ItemsListComponent {
+  @Input() items: IItem[];
 }
