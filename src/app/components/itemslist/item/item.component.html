@@ -1,1 +1,25 @@
-<p>item works!</p>
+<div class="item" [appBorderColor]="item.snippet.publishedAt">
+  <div class="item-image-wrapper">
+    <img class="item-image" src="{{ item.snippet.thumbnails.default.url }}" alt="image" />
+  </div>
+  <div class="item-widgets-wrapper">
+    <div class="item-widget">
+      <img class="item-widget-image" src="/assets/viewed.svg" />
+      <span class="item-widget-score">{{ item.statistics.viewCount }}</span>
+    </div>
+    <div class="item-widget">
+      <img class="item-widget-image" src="/assets/liked.svg" />
+      <span class="item-widget-score">{{ item.statistics.likeCount }}</span>
+    </div>
+    <div class="item-widget">
+      <img class="item-widget-image" src="/assets/dislike.svg" />
+      <span class="item-widget-score">{{ item.statistics.dislikeCount }}</span>
+    </div>
+    <div class="item-widget">
+      <img class="item-widget-image" src="/assets/comments.svg" />
+      <span class="item-widget-score">{{ item.statistics.commentCount }}</span>
+    </div>
+  </div>
+  <p class="item-text">{{ item.snippet.title }}</p>
+  <app-input buttonType="button" buttonValue="more..." buttonClass="button button_item"></app-input>
+</div>

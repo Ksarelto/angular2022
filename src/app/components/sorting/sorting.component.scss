@@ -1,0 +1,16 @@
+.link-button {
+  background-color: transparent;
+  border: none;
+  color: #2F80ED;
+  text-decoration: underline;
+  padding: 0 10px;
+}
+
+.sorting-input {
+  border: none;
+  outline: none;
+
+  &:focus-visible {
+    outline: none;
+  }
+}

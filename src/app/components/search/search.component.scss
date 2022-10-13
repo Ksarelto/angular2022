@@ -1,0 +1,26 @@
+.search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 5px;
+}
+
+.search-text{
+  max-width: 400px;
+  flex: 1;
+  padding: 5px;
+  background-color: #EFEFEF;
+  border: none;
+
+  &:focus-visible{
+    outline: none;
+  }
+}
+
+app-input[buttonType="button"] {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,12 @@
+.itemslist {
+  display: grid;
+  max-width: 1150px;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
+  grid-gap: 25px;
+}
+
+app-item {
+  box-sizing: border-box;
+}
