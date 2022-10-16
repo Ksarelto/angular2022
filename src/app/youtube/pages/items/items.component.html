@@ -1,0 +1,6 @@
+<div class="itemslist" *ngIf="items">
+  <app-item
+    *ngFor="let item of items | sortItems: sorting | filterItems: filter"
+    [item]="item"
+  ></app-item>
+</div>

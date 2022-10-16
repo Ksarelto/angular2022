@@ -1,0 +1,16 @@
+<div class="login-wrapper">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="login-form">
+    <h2 class="login-form_header">Login</h2>
+    <label class="login-form_label">login</label>
+    <input name="login" class="login-form_input" type="text" formControlName="login" />
+    <label class="login-form_label">password</label>
+    <input name="password" class="login-form_input" type="text" formControlName="password" />
+    <input
+      [disabled]="!form.valid"
+      name="submit"
+      class="login-form_btn"
+      type="submit"
+      value="Login"
+    />
+  </form>
+</div>

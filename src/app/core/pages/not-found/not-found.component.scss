@@ -1,0 +1,16 @@
+.not-found {
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-text {
+    font-weight: 700;
+    font-size: 24px;
+    color: #828282;
+  }
+
+  &-image {
+    margin-right: 10px;
+  }
+}
