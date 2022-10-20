@@ -1,0 +1,52 @@
+.login-wrapper {
+  height: 100%;
+}
+
+.login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 25px 20px;
+  border-radius: 5px;
+  background-color: #F2F2F2;
+
+  &_header {
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 15px;
+  }
+
+  &_label {
+    display: block;
+    font-size: 10px;
+    margin-bottom: 5px;
+    color: #828282;
+  }
+
+  &_input {
+    width: 100%;
+    background-color: #E0E0E0;
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .ng-invalid {
+    border: 1px solid rgb(236, 53, 53);
+  }
+
+  &_btn {
+    display: block;
+    font-size: 15px;
+    line-height: 12px;
+    color: #fff;
+    padding: 10px 40px;
+    margin-top: 20px;
+    margin-left: auto;
+    background: #2F80ED;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: #73a8ee;
+    }
+  }
+}

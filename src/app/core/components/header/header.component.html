@@ -1,0 +1,13 @@
+<div class="header">
+  <div class="header-search">
+    <app-search
+      class="search"
+      (showSort)="showSort = !showSort"
+      (showList)="downloadDb()"
+    ></app-search>
+    <app-auth></app-auth>
+  </div>
+  <div class="header-sorting">
+    <app-sorting *ngIf="showSort" class="header-sorting"></app-sorting>
+  </div>
+</div>

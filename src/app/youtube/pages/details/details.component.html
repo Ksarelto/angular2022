@@ -1,0 +1,41 @@
+<div class="details" *ngIf="item">
+  <div class="details_wrapper">
+    <input class="details_btn" type="button" (click)="goBack()" />
+    <div class="details_logo logo">
+      <div class="logo_wrapper">
+        <img class="logo_image" src="{{ item.snippet.thumbnails.standard.url }}" />
+      </div>
+      <span class="logo_text">#{{ item.snippet.categoryId }}</span>
+    </div>
+    <div class="details_description description">
+      <div class="description_wrapper">
+        <h2 class="description_header">{{ item.snippet.title }}#{{ item.snippet.categoryId }}</h2>
+        <span class="description_note">{{ item.snippet.publishedAt | filterDate }}</span>
+      </div>
+      <div class="text-wrapper">
+        <h3 class="description_header">Description</h3>
+        <p class="description_text">
+          {{ item.snippet.description }}
+        </p>
+      </div>
+      <div class="description_widgets">
+        <div class="description-widget">
+          <img class="description-widget-image" src="/assets/viewed.svg" />
+          <span class="description-widget-score">{{ item.statistics.viewCount }}</span>
+        </div>
+        <div class="description-widget">
+          <img class="description-widget-image" src="/assets/liked.svg" />
+          <span class="description-widget-score">{{ item.statistics.likeCount }}</span>
+        </div>
+        <div class="description-widget">
+          <img class="description-widget-image" src="/assets/dislike.svg" />
+          <span class="description-widget-score">{{ item.statistics.dislikeCount }}</span>
+        </div>
+        <div class="description-widget">
+          <img class="description-widget-image" src="/assets/comments.svg" />
+          <span class="description-widget-score">{{ item.statistics.commentCount }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
