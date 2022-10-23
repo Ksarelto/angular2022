@@ -13,10 +13,10 @@ export interface ISnippet {
   description: string;
   thumbnails: {
     default: IThumbnail;
-    medium: IThumbnail;
-    high: IThumbnail;
-    standard: IThumbnail;
-    maxres: IThumbnail;
+    medium?: IThumbnail;
+    high?: IThumbnail;
+    standard?: IThumbnail;
+    maxres?: IThumbnail;
   };
   channelTitle: string;
   tags: string[];

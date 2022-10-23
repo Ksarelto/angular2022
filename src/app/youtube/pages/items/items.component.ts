@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { CoreService } from 'src/app/core/services/core.service';
 import { IItem } from '../../models/item.model';
 import { ISorting } from '../../models/sorting.model';
@@ -16,15 +17,10 @@ export class ItemsComponent implements OnInit {
 
   filter: string;
 
-  items: IItem[];
+  items$: BehaviorSubject<IItem[]>;
 
   ngOnInit(): void {
-    this.youtubeService.dataBase.subscribe((value) => {
-      if (value) {
-        this.items = value.items;
-      }
-    });
-
+    this.items$ = this.youtubeService.dataBase;
     this.coreService.sorting.subscribe((value) => (this.sorting = value));
     this.coreService.filtering.subscribe((value) => (this.filter = value));
   }

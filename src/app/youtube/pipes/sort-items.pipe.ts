@@ -6,7 +6,11 @@ import { ISorting } from '../models/sorting.model';
   name: 'sortItems',
 })
 export class SortItemsPipe implements PipeTransform {
-  transform(items: IItem[], sortConfig: ISorting): IItem[] {
+  transform(items: IItem[] | null, sortConfig: ISorting): IItem[] {
+    if (!items) {
+      return [];
+    }
+
     const sortedItems = [...items];
 
     if (sortConfig?.type === 'date') {

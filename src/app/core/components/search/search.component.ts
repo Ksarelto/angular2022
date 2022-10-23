@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { BehaviorSubject, debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -10,16 +11,25 @@ export class SearchComponent {
 
   @Output() showList: EventEmitter<any> = new EventEmitter();
 
+  searchValue = new BehaviorSubject<string>('');
+
+  sortButtonShown = false;
+
+  constructor() {
+    this.searchValue.pipe(debounceTime(400)).subscribe((value) => {
+      if (value.length >= 3) {
+        this.sortButtonShown = true;
+        this.showList.emit(value);
+      }
+    });
+  }
+
+  searchItems($event: Event) {
+    const { value } = $event.target as HTMLInputElement;
+    this.searchValue.next(value);
+  }
+
   showSortWidgets() {
     this.showSort.emit();
   }
-
-  showItemsList(item: HTMLInputElement) {
-    if (item.value !== '') {
-      this.sortButtonShown = true;
-      this.showList.emit();
-    }
-  }
-
-  sortButtonShown = false;
 }

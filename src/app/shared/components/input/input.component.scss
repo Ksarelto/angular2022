@@ -39,8 +39,8 @@
 }
 
 .button_icon {
-  width: 35px;
-  height: 35px;
+  width: 33px;
+  height: 33px;
   padding: 0;
   margin: 0;
 }
@@ -50,7 +50,8 @@
 }
 
 .button_icon_registr {
-  background: url("/assets/Subtract.svg") center/ cover no-repeat;
+  background: url("/assets/Subtract.svg") center/ 100% 100% no-repeat;
+  border-radius: 7px;
 }
 
 .text {

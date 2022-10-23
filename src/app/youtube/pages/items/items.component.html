@@ -1,6 +1,6 @@
-<div class="itemslist" *ngIf="items">
+<div class="itemslist" *ngIf="items$">
   <app-item
-    *ngFor="let item of items | sortItems: sorting | filterItems: filter"
+    *ngFor="let item of items$ | async | sortItems: sorting | filterItems: filter"
     [item]="item"
   ></app-item>
 </div>
