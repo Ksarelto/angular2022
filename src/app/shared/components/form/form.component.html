@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="onSubmitForm(form.value)" class="form">
+  <h2 class="form_header">{{ formName.formName }}</h2>
+  <div *ngFor="let elem of formElements">
+    <label class="form_label">{{ elem.title }}</label>
+    <input
+      name="{{ elem.name }}"
+      class="form_input"
+      type="{{ elem.type ?? 'text' }}"
+      formControlName="{{ elem.name }}"
+    />
+    <span class="form_errors" *ngIf="form.get(elem.name)?.errors">{{
+      showErrors(form.get(elem.name)?.errors, elem)
+    }}</span>
+  </div>
+  <input
+    [disabled]="!form.valid"
+    name="submit"
+    class="form_btn"
+    type="submit"
+    value="{{ formName.submitName }}"
+  />
+</form>
