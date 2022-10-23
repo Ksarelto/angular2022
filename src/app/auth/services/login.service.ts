@@ -1,11 +1,11 @@
+import { IFormShape } from './../../shared/models/form.model';
 import { Injectable } from '@angular/core';
-import { ILogin } from '../models/login.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  saveUserCredentials(value: ILogin) {
+  saveUserCredentials(value: IFormShape) {
     const loginData = JSON.stringify({
       login: value.login,
       password: value.password,
