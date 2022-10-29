@@ -1,3 +1,5 @@
+import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,7 +10,14 @@ import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, CoreModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    CoreModule,
+    HttpClientModule,
+    AuthModule,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

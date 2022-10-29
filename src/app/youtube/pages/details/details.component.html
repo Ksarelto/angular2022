@@ -1,9 +1,16 @@
-<div class="details" *ngIf="item">
+<div class="details" *ngIf="item$ | async as item">
   <div class="details_wrapper">
     <input class="details_btn" type="button" (click)="goBack()" />
     <div class="details_logo logo">
       <div class="logo_wrapper">
-        <img class="logo_image" src="{{ item.snippet.thumbnails.standard.url }}" />
+        <img
+          class="logo_image"
+          src="{{
+            item.snippet.thumbnails.standard?.url ||
+              item.snippet.thumbnails.high?.url ||
+              item.snippet.thumbnails.default.url
+          }}"
+        />
       </div>
       <span class="logo_text">#{{ item.snippet.categoryId }}</span>
     </div>

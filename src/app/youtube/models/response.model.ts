@@ -9,3 +9,13 @@ export interface IDataBase {
   };
   items: IItem[];
 }
+
+export interface IResponse {
+  items: [
+    {
+      id: {
+        videoId: string;
+      };
+    },
+  ];
+}

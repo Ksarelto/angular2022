@@ -1,8 +1,22 @@
-<div class="auth">
-  <span class="auth-text">Your Name</span>
+<div class="auth" *ngIf="userLoggedIn | async; else loggedOut">
+  <span class="auth-text">Login</span>
   <app-input
     buttonType="button"
     buttonClass="button button_icon button_icon_registr"
     (click)="goToLoginPage()"
   ></app-input>
 </div>
+
+<ng-template #loggedOut>
+  <div class="auth">
+    <span class="auth-text">{{ userName }}</span>
+    <app-input
+      buttonValue="Logout"
+      buttonName="logout"
+      buttonType="button"
+      buttonClass="button"
+      (click)="logOut()"
+    >
+    </app-input>
+  </div>
+</ng-template>

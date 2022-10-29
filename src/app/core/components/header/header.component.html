@@ -3,7 +3,7 @@
     <app-search
       class="search"
       (showSort)="showSort = !showSort"
-      (showList)="downloadDb()"
+      (showList)="downloadDb($event)"
     ></app-search>
     <app-auth></app-auth>
   </div>

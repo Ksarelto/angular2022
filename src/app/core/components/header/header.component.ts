@@ -12,8 +12,8 @@ export class HeaderComponent {
 
   showSort = false;
 
-  downloadDb() {
-    this.youtubeService.downloadDb();
+  downloadDb($event: string) {
+    this.youtubeService.downloadDb($event);
     this.router.navigate(['main']);
   }
 }

@@ -7,6 +7,7 @@ import { SortingComponent } from './components/sorting/sorting.component';
 import { SearchComponent } from './components/search/search.component';
 import { SharedModule } from '../shared/shared.module';
 import { MainComponent } from './pages/main/main.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { MainComponent } from './pages/main/main.component';
     SearchComponent,
     MainComponent,
   ],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, FormsModule],
   exports: [
     NotFoundComponent,
     HeaderComponent,
