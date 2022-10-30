@@ -1,6 +1,8 @@
 {
   "root": true,
-  "plugins": ["import"],
+  "plugins": [
+    "import"
+  ],
   "ignorePatterns": [
     "projects/**/*"
   ],
@@ -60,12 +62,31 @@
       "rules": {}
     },
     {
-      "files": ["*.html"],
-      "excludedFiles": ["*inline-template-*.component.html"],
-      "extends": ["plugin:prettier/recommended"],
+      "files": [
+        "*.html"
+      ],
+      "excludedFiles": [
+        "*inline-template-*.component.html"
+      ],
+      "extends": [
+        "plugin:prettier/recommended"
+      ],
       "rules": {
-        "prettier/prettier": ["error", { "parser": "angular" }]
+        "prettier/prettier": [
+          "error",
+          {
+            "parser": "angular"
+          }
+        ]
       }
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:@ngrx/all-requiring-type-checking"
+      ]
     }
   ]
 }

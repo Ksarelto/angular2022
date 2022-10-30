@@ -1,8 +1,10 @@
+import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { IItem } from '../models/item.model';
 import { IDataBase, IResponse } from '../models/response.model';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import * as ItemsActions from '../../ngrx/actions/items.action';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +16,7 @@ export class YoutubeService {
 
   oneItem = new Subject<IItem>();
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private store: Store) {
     this.dataBase.subscribe((value) => {
       if (value) {
         this.data = value;
@@ -29,7 +31,7 @@ export class YoutubeService {
       .append('part', 'snippet')
       .append('maxResults', '15');
 
-    this.httpClient
+    return this.httpClient
       .get('/search', {
         params: params,
       })
@@ -37,14 +39,18 @@ export class YoutubeService {
         const { items } = value as IResponse;
         const ids = items.map((i) => i.id.videoId);
 
-        params = new HttpParams().append('id', ids.join(',')).append('part', 'snippet, statistics');
-
-        this.httpClient
-          .get('/videos', {
-            params: params,
-          })
-          .subscribe((data) => this.dataBase.next((data as IDataBase).items));
+        this.store.dispatch(ItemsActions.fetchItems({ ids }));
       });
+  }
+
+  getVideos(ids: string[]) {
+    const params = new HttpParams()
+      .append('id', ids.join(','))
+      .append('part', 'snippet, statistics');
+
+    return this.httpClient.get('/videos', {
+      params,
+    });
   }
 
   getOneById(id: string) {

@@ -1,9 +1,11 @@
+import { selectRemoteItems } from './../../../ngrx/selectors/items.selector';
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CoreService } from 'src/app/core/services/core.service';
 import { IItem } from '../../models/item.model';
 import { ISorting } from '../../models/sorting.model';
-import { YoutubeService } from '../../services/youtube.service';
+import { Store } from '@ngrx/store';
+import { IState } from 'src/app/ngrx/models/state.model';
 
 @Component({
   selector: 'app-items',
@@ -11,16 +13,16 @@ import { YoutubeService } from '../../services/youtube.service';
   styleUrls: ['./items.component.scss'],
 })
 export class ItemsComponent implements OnInit {
-  constructor(private youtubeService: YoutubeService, private coreService: CoreService) {}
+  constructor(private coreService: CoreService, private store: Store<IState>) {}
 
   sorting: ISorting;
 
   filter: string;
 
-  items$: BehaviorSubject<IItem[]>;
+  items$: Observable<IItem[]>;
 
   ngOnInit(): void {
-    this.items$ = this.youtubeService.dataBase;
+    this.items$ = this.store.select(selectRemoteItems);
     this.coreService.sorting.subscribe((value) => (this.sorting = value));
     this.coreService.filtering.subscribe((value) => (this.filter = value));
   }

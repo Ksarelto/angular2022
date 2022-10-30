@@ -8,6 +8,9 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { regexForUrl } from 'src/app/shared/constants/urlRegex';
+import { Store } from '@ngrx/store';
+import { addNewItem } from 'src/app/ngrx/actions/items.action';
+import { CustomItem } from '../../models/customItem.model';
 
 @Component({
   selector: 'app-admin',
@@ -46,6 +49,8 @@ export class AdminComponent implements OnInit {
     },
   ];
 
+  constructor(private store: Store) {}
+
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl(
@@ -73,7 +78,11 @@ export class AdminComponent implements OnInit {
   }
 
   onSubmit(value: IFormShape) {
-    console.log(value);
+    const { date, description, title, ['image link']: imgLink, ['video link']: vidLink } = value;
+
+    const newItem = new CustomItem(title, description, imgLink, vidLink, date);
+
+    this.store.dispatch(addNewItem({ item: newItem }));
   }
 
   customDateValidation() {
